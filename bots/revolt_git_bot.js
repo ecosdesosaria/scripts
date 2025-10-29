@@ -3,7 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 
 const BOT_TOKEN = 'SEU_TOKEN_AQUI';
-const CHANNEL_ID = 'CHANNEL_ID_AQUI';
+const CHANNEL_ID = 'SEU_CHANNEL_ID';
 
 const client = new Client();
 
@@ -55,5 +55,5 @@ app.post('/github', async (req, res) => {
 });
 
 // Porta onde o webhook irá ouvir
-const PORT = 3000;
-app.listen(PORT, () => console.log(`🚀 Webhook escutando na porta ${PORT}`));
+const PORT = 3001;
+app.listen(PORT, '0.0.0.0', () => console.log(`🚀 Webhook escutando na porta ${PORT}`));
