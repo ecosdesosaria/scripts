@@ -11,7 +11,7 @@ ONLINE_FILE = "/home/castilho/Games/sos/World/Saves/Data/online.txt"
 
 # Configurações do servidor local
 HOST = "localhost"
-PORT = 8080         # Porta do servidor da API
+PORT = 8888         # Porta do servidor da API
 GAME_HOST = "127.0.0.1"  # IP do servidor do jogo
 GAME_PORT = 2593         # Porta do servidor do jogo (ajuste conforme seu UO)
 TCP_TIMEOUT = 1          # segundos para teste rápido de conexão
