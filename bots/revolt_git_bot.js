@@ -19,6 +19,11 @@ app.use(bodyParser.json());
 app.post('/github', async (req, res) => {
     const event = req.headers['x-github-event'];
 
+    if (event === 'ping') {
+        console.log("✅ Webhook ping recebido do GitHub!");
+        return res.status(200).send('Pong! ✅');
+    }
+
     if (event === 'push') {
         const repo = req.body.repository.full_name;
         const pusher = req.body.pusher.name;
@@ -34,13 +39,19 @@ app.post('/github', async (req, res) => {
             message += `• ${commit.message} (${commit.id.substring(0, 7)})\n`;
         });
 
-        const channel = await client.channels.fetch(CHANNEL_ID);
-        await channel.sendMessage(message);
+        try {
+            const channel = await client.channels.fetch(CHANNEL_ID);
+            await channel.sendMessage(message);
+            console.log("✅ Notificação enviada!");
+        } catch (err) {
+            console.error("❌ Erro ao enviar mensagem:", err);
+        }
 
-        console.log("✅ Notificação enviada!");
+        return res.status(200).send('OK');
     }
 
-    res.status(200).send('OK');
+    // Fallback for unknown events
+    res.status(200).send('Evento ignorado ✅');
 });
 
 // Porta onde o webhook irá ouvir
