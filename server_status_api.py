@@ -6,8 +6,8 @@ import socket
 import os
 
 # Caminhos (ajuste se necessário)
-ACCOUNTS_XML = "/home/castilho/Games/sos/World/Saves/Accounts/accounts.xml"
-ONLINE_FILE = "/home/castilho/Games/sos/World/Saves/Data/online.txt"
+ACCOUNTS_XML = "/home/ubuntu/ecos-server/World/Saves/Accounts/accounts.xml"
+ONLINE_FILE = "/home/ubuntu/ecos-server/World/Saves/Data/online.txt"
 
 # Configurações do servidor local
 HOST = "localhost"
